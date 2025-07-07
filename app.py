@@ -18,6 +18,7 @@ def summarize_route():
     combined_text = " ".join([article["content"] for article in articles if article["content"]])
 
     # Step 3: Summarize
+    combined_text = combined_text[:3000]#Limit to 3000 characters for api limitations
     summary = summarize_text(combined_text)
 
     return jsonify({

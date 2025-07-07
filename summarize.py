@@ -8,9 +8,8 @@ load_dotenv()
 # Configure Gemini API key
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# Initialize Gemini model
-model = genai.GenerativeModel("gemini-pro")
-
+# Initialize the Generative Model
+model = genai.GenerativeModel("models/gemini-1.5-pro")
 def summarize_text(text):
     if not text.strip():
         return "No content to summarize."

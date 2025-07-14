@@ -4,8 +4,10 @@ __pycache__
 *.py[cod]
 
 # Virtual environment
-.env/
+backend/.env
 env/
 venv/
 .venv/
 .env
+
+.vscode/

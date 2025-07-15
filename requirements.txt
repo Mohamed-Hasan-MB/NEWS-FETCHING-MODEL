@@ -1,6 +1,0 @@
-requests
-openai
-python-dotenv
-ipykernel
-Flask
-google-generativeai

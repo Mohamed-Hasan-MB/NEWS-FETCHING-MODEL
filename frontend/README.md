@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+🗞️ News Fetching App
+A full-stack application that fetches the latest news articles based on a user’s query using a Python backend and a React frontend. Summarization is handled via a third-party API (e.g., Gemini or OpenAI).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+📁 Project Structure
 
-## Available Scripts
+News Fetching Model/
+├── Backend/               # Python backend (Flask)
+│   ├── app.py             # Main Flask app
+│   ├── fetch_news.py      # News fetching logic
+│   ├── summarize.py       # Summarization using Gemini/OpenAI
+│   ├── test.py            # Script for testing
+│   └── .env               # API keys (ignored in .gitignore)
+├── frontend/              # React frontend
+│   ├── public/
+│   └── src/
+├── .gitignore
+└── README.md
 
-In the project directory, you can run:
+🚀 Features
 
-### `npm start`
+🔍 Fetches latest news based on a search term.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+✂️ Summarizes long news using LLM APIs.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🖥️ Simple and responsive React frontend.
 
-### `npm test`
+🧠 Clean modular backend using Flask.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+📦 Tech Stack
 
-### `npm run build`
+Frontend: React.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Backend: Python (Flask)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+APIs: News API, Gemini / OpenAI for summarization
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Other: Git, .env, Node.js, npm
 
-### `npm run eject`
+🔧 Setup Instructions
+Backend
+cd Backend
+python -m venv venv
+venv\Scripts\activate        # or source venv/bin/activate (Linux/Mac)
+pip install -r requirements.txt
+python app.py
+Frontend
+cd frontend
+npm install
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🌐 Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Start backend (localhost:5000)
+Start frontend (localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Enter a keyword, click "Fetch News"
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+View summarized headlines and articles
 
-## Learn More
+📁 .env (example)
+ini
+NEWS_API_KEY=your_news_api_key
+GEMINI_API_KEY=your_gemini_api_key
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📜 License
+MIT License — feel free to use, modify, and share.

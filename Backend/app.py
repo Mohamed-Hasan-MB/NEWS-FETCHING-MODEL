@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 from fetch_news import fetch_news_articles
 from summarize import summarize_text
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 @app.route("/summarize", methods=["POST"])
 def summarize_route():
     data = request.get_json()
@@ -11,19 +14,25 @@ def summarize_route():
     if not topic:
         return jsonify({"error": "No topic provided"}), 400
 
-    # Step 1: Fetch news
+    # Step 1: Fetch news articles
     articles = fetch_news_articles(topic)
 
-    # Step 2: Combine all article text
-    combined_text = " ".join([article["content"] for article in articles if article["content"]])
+    if not articles:
+        return jsonify({"error": "No articles found"}), 404
 
-    # Step 3: Summarize
-    combined_text = combined_text[:3000]#Limit to 3000 characters for api limitations
+    # Step 2: Combine all article content
+    combined_text = " ".join([
+        article.get("content", "") for article in articles if article.get("content")
+    ])
+
+    # Step 3: Summarize using Gemini
     summary = summarize_text(combined_text)
 
+    # ✅ Return both articles and summary
     return jsonify({
-        "summary": summary,
-        "articles_found": len(articles)
+        "articles": articles,
+        "summary": summary
     })
+
 if __name__ == "__main__":
     app.run(debug=True)
